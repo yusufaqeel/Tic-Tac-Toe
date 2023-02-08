@@ -1,7 +1,13 @@
 function init (){
-    let player1 = "X"
-    let player2 = "O"
-    let Turn = player2
+    // ________ Game Values ___________________ //
+
+    let choice = document.querySelectorAll('.XO')
+    let imagesGame = document.querySelectorAll ('.imageGame')
+    let X = document.querySelector ('#X')
+    let O = document.querySelector ('#O')
+    let player1 = ''
+    let player2 = ''
+    let Turn = player1
     let player1List=[]
     let player2List=[]
     let displayScore1 = document.querySelector('.score1') 
@@ -23,20 +29,52 @@ function init (){
     [1,5,9],
     [3,5,7]
     ]
-    let player1Choice = document.querySelector ('#X')
-    let player2Choice = document.querySelector ('#O')
-    function playerChoice1 (event){
+    const buttonX = document.querySelector('#X')
+    const buttonO = document.querySelector('#O')
+    const introSound = document.querySelector('.audio1')
+    let gameAudios = document.querySelectorAll('.gameAudio')
+
+
+
+    // ________________ Game Function ____________________ //
+
+    function playerChoice1 (event) {
         player1 = 'X'
         player2 = 'O'
+        Turn = player2
     }
-    player1Choice.addEventListener('click', playerChoice1)
-    function playerChoice2 (event){
+    buttonX.addEventListener('click', playerChoice1)
+    function narutoUzumaki () {
+        introSound.src = '/TTT-sounds/uzumaki-naruto.mp3'
+        introSound.play()
+    }
+    buttonX.addEventListener('click', narutoUzumaki)
+    function playerChoice2 (event) {
         player1 = 'O'
         player2 = 'X'
+        Turn = player2
     }
-    player1Choice.addEventListener('click', playerChoice2)
+    buttonO.addEventListener('click', playerChoice2)
+    function sasukeUchiha () {
+        introSound.src = '/TTT-sounds/uchiha-sasuke.mp3'
+        introSound.play()
+    }
+    buttonO.addEventListener('click', sasukeUchiha)
+
     function playTurn (event) {
         if (Turn === player1) {
+            if (player1 === 'X'){
+                console.log(introSound.src)
+                event.target.classList.add('O')
+                introSound.src = '/TTT-sounds/narutoo.mp3'
+                
+                introSound.play()
+            } else {
+                console.log(introSound.src)
+                event.target.classList.add('X')
+                introSound.src = '/TTT-sounds/Sasukee.mp3'
+                introSound.play()
+            }
             event.target.style.pointerEvents = "none"
             player1List.push(parseInt(event.target.dataset.id))
             Turn = player2
@@ -45,11 +83,20 @@ function init (){
             event.target.style.pointerEvents = "none"
             Turn = player1
             player2List.push(parseInt(event.target.dataset.id))
-        }
-        event.target.innerHTML = Turn
-        console.log(player1List)
-        console.log(player2List)
+            if (player1 === 'X'){
+                event.target.classList.add('X')
+                introSound.src = '/TTT-sounds/Sasukee.mp3'
+                
+                introSound.play()
 
+            } else {
+                event.target.classList.add('O')
+                introSound.src = '/TTT-sounds/narutoo.mp3'
+                introSound.play()
+            }
+        }
+        // event.target.innerHTML = Turn
+// ____________ winnig condition ____________________ //
         let isWinningConditionMet = false
         winningCond.forEach(condition => {
             let count = 0
@@ -59,8 +106,8 @@ function init (){
     if (count === 3) {
         isWinningConditionMet = true
         score1 = score1 + 1
-        displayScore2.innerHTML = score2
-        result.textContent = 'Player O has won'
+        displayScore2.innerHTML = score1
+        result.textContent = 'Player 2 has won'
     }
     count = 0
     condition.forEach(cell => {
@@ -70,18 +117,17 @@ function init (){
         isWinningConditionMet = true
         score2 = score2 + 1
         displayScore1.innerHTML = score2
-        result.textContent = 'Player X has won'
+        result.textContent = 'Player 1 has won'
 
     }
 
     if (player1List.length + player2List.length === 9 && isWinningConditionMet === false){
         result.textContent = 'Game result is a draw'
+        
     }
-
-    
 })
 if (isWinningConditionMet) {
-   console.log('The game has ended')
+
    cells.forEach(cell => {
     cell.removeEventListener('click', playTurn)
 })
@@ -90,10 +136,12 @@ if (isWinningConditionMet) {
     cells.forEach(cell => {
         cell.addEventListener('click', playTurn)
     })
-
+// ________________ game restart _________________//
     function restart (event) {
         player1List = []
         player2List = []
+        introSound.src = '/TTT-sounds/Yoo.mp3'
+        introSound.play()
         Turn = player2
         console.log(player1List)
         console.log(player2List)
@@ -103,6 +151,8 @@ if (isWinningConditionMet) {
         // cells.target.innerHTML = ''
         cells.forEach(cell => {
             cell.style.pointerEvents = 'auto'
+            cell.classList.remove('O')
+            cell.classList.remove('X')
             cell.textContent = ''
             cell.addEventListener('click', playTurn)
         })
@@ -110,5 +160,6 @@ if (isWinningConditionMet) {
     }
 
     resetBtn.addEventListener('click', restart)
+
 }
 window.addEventListener('DOMContentLoaded', init)
