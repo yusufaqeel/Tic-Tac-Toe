@@ -2,7 +2,6 @@
     // ________ Game Values ___________________ //
 window.onload = () => {
     //code here
-// }
     let choice = document.querySelectorAll('.XO')
     let imagesGame = document.querySelectorAll ('.imageGame')
     let X = document.querySelector ('#X')
@@ -58,7 +57,7 @@ window.onload = () => {
     }
     buttonO.addEventListener('click', playerChoice2)
     function sasukeUchiha () {
-        introSound.src = '/TTT-sounds/uchiha-sasuke.mp3'
+        introSound.src = './TTT-sounds/uchiha-sasuke.mp3'
         introSound.play()
     }
     buttonO.addEventListener('click', sasukeUchiha)
@@ -68,13 +67,13 @@ window.onload = () => {
             if (player1 === 'X'){
                 console.log(introSound.src)
                 event.target.classList.add('O')
-                introSound.src = '/TTT-sounds/narutoo.mp3'
+                introSound.src = './TTT-sounds/narutoo.mp3'
                 
                 introSound.play()
             } else {
                 console.log(introSound.src)
                 event.target.classList.add('X')
-                introSound.src = '/TTT-sounds/Sasukee.mp3'
+                introSound.src = './TTT-sounds/Sasukee.mp3'
                 introSound.play()
             }
             event.target.style.pointerEvents = "none"
@@ -87,13 +86,13 @@ window.onload = () => {
             player2List.push(parseInt(event.target.dataset.id))
             if (player1 === 'X'){
                 event.target.classList.add('X')
-                introSound.src = '/TTT-sounds/Sasukee.mp3'
+                introSound.src = './TTT-sounds/Sasukee.mp3'
                 
                 introSound.play()
 
             } else {
                 event.target.classList.add('O')
-                introSound.src = '/TTT-sounds/narutoo.mp3'
+                introSound.src = './TTT-sounds/narutoo.mp3'
                 introSound.play()
             }
         }
@@ -142,7 +141,7 @@ if (isWinningConditionMet) {
     function restart (event) {
         player1List = []
         player2List = []
-        introSound.src = '/TTT-sounds/Yoo.mp3'
+        introSound.src = './TTT-sounds/Yoo.mp3'
         introSound.play()
         Turn = player2
         console.log(player1List)
@@ -164,4 +163,3 @@ if (isWinningConditionMet) {
     resetBtn.addEventListener('click', restart)
 
 }
-// window.addEventListener('DOMContentLoaded', init)

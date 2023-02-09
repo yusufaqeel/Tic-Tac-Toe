@@ -130,7 +130,7 @@ h1 {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-image: url('/TTT-images/shuriken.png');
+    background-image: url('../TTT-images/shuriken.png');
     background-repeat: no-repeat;
     background-position: center;
     height: 150px;
@@ -168,13 +168,13 @@ h1 {
 }
 
 .O {
-    background-image: url('/TTT-images/sasuke-turn.png');
+    background-image: url('../TTT-images/sasuke-turn.png');
     background-size: contain;
     background-repeat: no-repeat;
 }
 
 .X {
-    background-image: url('/TTT-images/naruto-turn.png');
+    background-image: url('../TTT-images/naruto-turn.png');
     background-size: contain;
     background-repeat: no-repeat;
 }
