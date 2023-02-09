@@ -47,6 +47,7 @@ window.onload = () => {
     buttonX.addEventListener('click', playerChoice1)
     function narutoUzumaki () {
         introSound.src = '../TTT-sounds/uzumaki-naruto.mp3'
+        // introSound.src = 'https://github.com/yusufaqeel/Tic-Tac-Toe/blob/main/TTT-sounds/uzumaki-naruto.mp3'
         introSound.play()
     }
     buttonX.addEventListener('click', narutoUzumaki)
