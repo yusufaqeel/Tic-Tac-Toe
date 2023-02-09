@@ -1,6 +1,8 @@
-function init (){
+// function init (){
     // ________ Game Values ___________________ //
-
+window.onload = () => {
+    //code here
+// }
     let choice = document.querySelectorAll('.XO')
     let imagesGame = document.querySelectorAll ('.imageGame')
     let X = document.querySelector ('#X')
@@ -162,4 +164,4 @@ if (isWinningConditionMet) {
     resetBtn.addEventListener('click', restart)
 
 }
-window.addEventListener('DOMContentLoaded', init)
+// window.addEventListener('DOMContentLoaded', init)

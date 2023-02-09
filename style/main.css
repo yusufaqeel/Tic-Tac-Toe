@@ -189,15 +189,18 @@ h1 {
     /* background-image: url("/TTT-images/shuriken.png"); */
     border: none;
 }
+
 #btn:hover {
     background-color: rgba(255, 166, 0, 0.459);
     border-radius: 80%;
 }
+
 .resetParent {
     display: flex;
     justify-content: center;
     margin: 25px;
 }
+
 .score {
     display: flex;
     flex-direction: column;
@@ -215,6 +218,7 @@ h1 {
 }
 #team {
     font-family: 'Fredericka the Great', cursive;
+    text-align: center;
 }
 .version {
     font-size: 30px;
