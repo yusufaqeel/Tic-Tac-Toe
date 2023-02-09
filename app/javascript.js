@@ -46,7 +46,7 @@ window.onload = () => {
     }
     buttonX.addEventListener('click', playerChoice1)
     function narutoUzumaki () {
-        introSound.src = './TTT-sounds/uzumaki-naruto.mp3'
+        introSound.src = '../TTT-sounds/uzumaki-naruto.mp3'
         introSound.play()
     }
     buttonX.addEventListener('click', narutoUzumaki)
